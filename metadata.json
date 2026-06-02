@@ -1,0 +1,6 @@
+{
+  "name": "Bluff-7 Bar Mini Program",
+  "description": "An interactive, visually polished client-side simulation of the Bluff-7 Bar WeChat Mini Program, featuring in-store drink ordering, live poker/competitor table seat booking, leaderboard rankings, and user member profile integrations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
