@@ -78,10 +78,10 @@ export default function ReservationScreen({
       {/* Scrollable Container section */}
       <div className="space-y-4">
         
-        {/* Sub-Header bar matching Screen 5 "Bluff-7 Bar >" and "牌桌礼仪以及预约规则" */}
+        {/* Sub-Header bar matching Screen 5 "RAIVE HOUSE >" and "牌桌礼仪以及预约规则" */}
         <div className="flex justify-between items-center text-xs tracking-wide text-neutral-400 select-none px-1">
           <div className="flex items-center gap-1 hover:opacity-85 cursor-pointer">
-            <span className="font-bold text-neutral-200">Bluff-7 Bar</span>
+            <span className="font-bold text-neutral-200">RAIVE HOUSE</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
               <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
             </svg>
@@ -114,7 +114,7 @@ export default function ReservationScreen({
               </span>
             </div>
             <p className="text-[11px] text-neutral-400">
-              Bluff-7 旗舰店王牌主理德州竞技区
+              RAIVE HOUSE 旗舰店王牌主理德州竞技区
             </p>
           </div>
 
@@ -171,9 +171,9 @@ export default function ReservationScreen({
                   <span className="text-neutral-400">♣️</span>
                   <span className="text-rose-500">♦️</span>
                 </div>
-                {/* Bluff-7 signature brand */}
+                {/* RAIVE HOUSE signature brand */}
                 <h2 className="text-xl font-black font-sans tracking-wide italic text-stone-100 flex items-center justify-center gap-1 select-all">
-                  Bluff<span className="text-rose-600 font-serif font-black">-7</span>
+                  RAIVE<span className="text-rose-600 font-serif font-black"> HOUSE</span>
                 </h2>
                 <p className="text-[7.5px] tracking-widest text-neutral-500 mt-1 uppercase font-mono">
                   CHAMPIONSHIP TOUR
@@ -379,7 +379,7 @@ export default function ReservationScreen({
 
             <div className="mb-3 border-b border-neutral-900 pb-2">
               <h3 className="text-md font-bold text-amber-500 font-mono tracking-wider uppercase flex items-center gap-1">
-                <span>✦</span> Bluff-7 牌桌预约规则
+                <span>✦</span> RAIVE HOUSE 牌桌预约规则
               </h3>
             </div>
 
@@ -396,7 +396,7 @@ export default function ReservationScreen({
 
               <section className="space-y-1">
                 <h5 className="font-extrabold text-neutral-200">三、文明德州公约</h5>
-                <p>Bluff-7 Bar 秉持正能量竞技理念，拒绝言语谩骂或任何形式的不端行为，桌台内支持合理的诈唬技巧(Bluff)展示，严禁作弊勾兑行为。</p>
+                <p>RAIVE HOUSE 秉持正能量竞技理念，拒绝言语谩骂或任何形式的不端行为，桌台内支持合理的诈唬技巧展示，严禁作弊勾兑行为。</p>
               </section>
 
               <section className="space-y-1">

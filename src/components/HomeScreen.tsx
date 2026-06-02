@@ -41,7 +41,7 @@ export default function HomeScreen({
   const [copiedWifi, setCopiedWifi] = useState(false);
 
   const copyWifiPassword = () => {
-    navigator.clipboard.writeText('bluff777777');
+    navigator.clipboard.writeText('raive888888');
     setCopiedWifi(true);
     setTimeout(() => setCopiedWifi(false), 2000);
   };
@@ -75,17 +75,16 @@ export default function HomeScreen({
               <span className="text-[18px] text-[#aa2c2c] animate-bounce">👑</span>
             </div>
             
-            <h1 className="text-4xl font-extrabold tracking-wider text-stone-950 font-serif relative flex items-center justify-center gap-1">
-              <span>B</span>
-              <span className="text-stone-900 text-3xl">l</span>
-              <span className="text-rose-900 transform rotate-6">u</span>
-              <span className="text-red-800">f</span>
-              <span className="text-stone-900 font-sans text-3xl">-</span>
-              <span className="text-[#aa2c2c] text-5xl font-mono">7</span>
+            <h1 className="text-4xl font-extrabold tracking-wider text-stone-950 font-serif relative flex items-center justify-center gap-1.5">
+              <span>R</span>
+              <span className="text-stone-900 text-3xl">a</span>
+              <span className="text-rose-900 transform rotate-6">i</span>
+              <span className="text-red-800">v</span>
+              <span className="text-[#aa2c2c] text-5xl font-mono">e</span>
             </h1>
             
             <p className="text-[11.5px] font-sans font-extrabold text-stone-605 tracking-[0.25em] uppercase text-center mt-1">
-              Bluff-7 bar 酒馆
+              RAIVE HOUSE 酒馆
             </p>
             
             {/* Elegant double border line decor */}
@@ -263,7 +262,7 @@ export default function HomeScreen({
                 <span className="text-red-600 block text-xs -mt-1">♦️</span>
               </div>
             </div>
-            <span className="text-[7.5px] text-stone-400 uppercase tracking-widest font-mono">BLUFF-7 AUTH</span>
+            <span className="text-[7.5px] text-stone-400 uppercase tracking-widest font-mono">RAIVE AUTH</span>
           </div>
         </div>
 
@@ -312,16 +311,7 @@ export default function HomeScreen({
 
       </div>
 
-      {/* FOOTER */}
-      <div className="mt-8 pt-4 pb-2 text-center select-none shrink-0 border-t border-stone-900/10 flex flex-col items-center justify-center">
-        <div className="flex items-center gap-1 text-xs text-stone-500 font-bold">
-          <span>👑</span>
-          <span className="font-serif italic text-stone-700">Bluff-7 Bar 小程序</span>
-        </div>
-        <p className="text-[9px] text-stone-400 mt-1 uppercase tracking-widest font-mono">
-          © 2026 BLUFF-7 CLUB • ALL RIGHTS RESERVED
-        </p>
-      </div>
+
 
       {/* =========================================
                      MODALS POPUPS
@@ -343,7 +333,7 @@ export default function HomeScreen({
               <div className="w-12 h-12 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center mx-auto mb-2 border border-amber-500/20">
                 <Wifi className="w-6 h-6 stroke-[2]" />
               </div>
-              <h4 className="text-sm font-bold text-neutral-200">Bluff-7 尊享客户 WiFi</h4>
+              <h4 className="text-sm font-bold text-neutral-200">RAIVE HOUSE 尊享客户 WiFi</h4>
               <p className="text-[11px] text-[#8e8d95] tracking-wide">
                 已调配千兆光纤，高速体验德州与点单
               </p>
@@ -352,11 +342,11 @@ export default function HomeScreen({
             <div className="bg-neutral-950 p-3.5 rounded-2xl border border-neutral-850 space-y-3 font-mono text-xs select-all">
               <div className="flex justify-between items-center border-b border-neutral-900 pb-2">
                 <span className="text-neutral-500 text-[10.5px]">无线网络账号</span>
-                <span className="text-white font-bold select-all">Bluff-7_Bar_5G</span>
+                <span className="text-white font-bold select-all">RAIVE_HOUSE_5G</span>
               </div>
               <div className="flex justify-between items-center pt-1">
                 <span className="text-neutral-500 text-[10.5px]">专属连接密码</span>
-                <span className="text-white font-bold font-mono tracking-wider select-all">bluff777777</span>
+                <span className="text-white font-bold font-mono tracking-wider select-all">raive888888</span>
               </div>
             </div>
 
@@ -386,7 +376,7 @@ export default function HomeScreen({
               <div className="w-12 h-12 rounded-full bg-teal-500/10 text-teal-400 flex items-center justify-center mx-auto mb-2 border border-teal-500/20">
                 <MapPin className="w-6 h-6 stroke-[2]" />
               </div>
-              <h4 className="text-sm font-bold text-neutral-200">Bluff-7 Bar 酒馆位置</h4>
+              <h4 className="text-sm font-bold text-neutral-200">RAIVE HOUSE 酒馆位置</h4>
               <p className="text-[11px] text-stone-500 font-sans">汇隆中心皇尊臻选店</p>
             </div>
 
@@ -406,7 +396,7 @@ export default function HomeScreen({
 
             <button
               onClick={() => {
-                navigator.clipboard.writeText('广东省东莞市黄江镇板湖路30号汇隆中心9楼 Bluff-7 bar');
+                navigator.clipboard.writeText('广东省东莞市黄江镇板湖路30号汇隆中心9楼 RAIVE HOUSE');
                 alert('门店详细地址复制成功！已为您规划最优路线 🚗');
               }}
               className="w-full mt-4 py-2.5 bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs rounded-xl shadow cursor-pointer text-center transition-all"
@@ -431,7 +421,7 @@ export default function HomeScreen({
 
             <div className="text-center space-y-1.5 mb-4 select-none">
               <span className="text-[9.5px] bg-[#961e1e] text-white px-2 py-0.5 rounded uppercase font-mono font-bold">
-                Bluff-7 bar 合伙股份
+                RAIVE HOUSE 合伙股份
               </span>
               <h4 className="text-sm font-bold text-neutral-200">
                 共享股东特权看板
@@ -496,7 +486,7 @@ export default function HomeScreen({
           {/* Top disclaimer dismiss */}
           <div className="flex justify-between items-center select-none pt-4">
             <span className="text-[10px] tracking-widest text-[#aa2c2c] font-mono uppercase font-black">
-              BLUFF-7 WARNING SCREEN
+              RAIVE WARNING SCREEN
             </span>
             <button
               id="close_disclaimer_overlay"
@@ -540,9 +530,9 @@ export default function HomeScreen({
                 </div>
               </div>
 
-              {/* Bold custom lettering header: BLUFF-7 */}
-              <h2 className="text-5xl font-black tracking-widest text-[#f5f5f5] font-serif uppercase">
-                BLUFF<span className="text-[#aa2c2c]">-7</span>
+              {/* Bold custom lettering header: RAIVE HOUSE */}
+              <h2 className="text-4xl font-black tracking-widest text-[#f5f5f5] font-serif uppercase">
+                RAIVE<span className="text-[#aa2c2c]"> HOUSE</span>
               </h2>
               <p className="text-[9px] font-sans text-neutral-500 uppercase tracking-[0.25em] mt-1">
                 CIVILIZED DE友 CLUB
@@ -580,9 +570,9 @@ export default function HomeScreen({
               {/* Minimal Logo inside felt */}
               <div className="my-auto text-center space-y-0.5 opacity-60">
                 <span className="text-[14px] text-stone-200/90 font-serif leading-none tracking-widest block font-bold">
-                  BLUFF-7
+                  RAIVE HOUSE
                 </span>
-                <span className="text-[8px] font-mono text-amber-500 block">✦ BAR ✦</span>
+                <span className="text-[8px] font-mono text-amber-500 block">✦ CLUB ✦</span>
               </div>
 
               {/* Stack of Poker chips on felt */}

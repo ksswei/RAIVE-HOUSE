@@ -342,7 +342,7 @@ async function startServer() {
     const timestampStr = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
 
     const newOrder: Order = {
-      id: 'B7-' + Math.floor(100000 + Math.random() * 900000),
+      id: 'RH-' + Math.floor(100000 + Math.random() * 900000),
       items,
       totalAmount: finalBillPrice,
       createdAt: timestampStr,
@@ -471,7 +471,7 @@ async function startServer() {
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`[Bluff-7 Bar Server] Running full-stack environment at: http://localhost:${PORT}`);
+    console.log(`[RAIVE HOUSE Server] Running full-stack environment at: http://localhost:${PORT}`);
   });
 }
 

@@ -170,5 +170,5 @@ export const MOCK_COUPONS = [
 ];
 
 export const MOCK_STORES = [
-  { id: 's1', name: 'Bluff-7 Bar(Bluff-7 Bar)', address: '广东省东莞市黄江镇板湖路30号汇隆中心9楼', distance: '12.4km' }
+  { id: 's1', name: 'RAIVE HOUSE (RAIVE HOUSE)', address: '广东省东莞市黄江镇板湖路30号汇隆中心9楼', distance: '12.4km' }
 ];

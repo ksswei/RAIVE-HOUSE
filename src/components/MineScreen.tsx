@@ -21,6 +21,7 @@ interface MineScreenProps {
   registerUser: (nickname: string, phone: string) => void;
   onAddBalance: (amount: number) => void;
   onSelectTab: (tab: string) => void;
+  onTriggerSmsRegister: () => void;
 }
 
 export default function MineScreen({
@@ -28,7 +29,8 @@ export default function MineScreen({
   orders,
   registerUser,
   onAddBalance,
-  onSelectTab
+  onSelectTab,
+  onTriggerSmsRegister
 }: MineScreenProps) {
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [regName, setRegName] = useState('');
@@ -46,6 +48,14 @@ export default function MineScreen({
     registerUser(regName.trim(), regPhone.trim());
     setShowRegisterModal(false);
     alert(`恭喜注册成功！已为您派发全场【全场首杯半价券】及 100 初始积分！🎁`);
+  };
+
+  const handleFeatureClick = (id: string) => {
+    if ((id === 'stored' || id === 'mall' || id === 'balance') && !user.isRegistered) {
+      onTriggerSmsRegister();
+      return;
+    }
+    setActiveFeatureModal(id);
   };
 
   const featureItems = [
@@ -78,7 +88,7 @@ export default function MineScreen({
 
             <button
               id="mine_register_trigger"
-              onClick={() => setShowRegisterModal(true)}
+              onClick={onTriggerSmsRegister}
               className="px-4 py-2 bg-[#961e1e] hover:bg-[#800d0d] text-white text-xs font-bold rounded-full shadow-lg transition-transform hover:scale-[1.03] active:scale-[0.98] outline-none cursor-pointer text-center"
             >
               立即注册
@@ -113,7 +123,7 @@ export default function MineScreen({
               <span className="text-[9px] tracking-widest text-[#d4af37] font-mono font-bold uppercase block">
                 BLUFF皇冠尊享
               </span>
-              <span className="text-[8.5px] text-neutral-500 block mt-0.5">会员卡号: B7-00281</span>
+              <span className="text-[8.5px] text-neutral-500 block mt-0.5">会员卡号: RH-00281</span>
             </div>
 
             {/* Faint poker chip decor */}
@@ -128,7 +138,7 @@ export default function MineScreen({
           {/* Balance Item */}
           <div 
             id="stat_col_balance"
-            onClick={() => setActiveFeatureModal('balance')}
+            onClick={() => handleFeatureClick('balance')}
             className="flex flex-col justify-center cursor-pointer hover:bg-neutral-900/30 transition-all py-1 rounded"
           >
             <span className="text-[10px] text-neutral-500 font-bold block mb-1">余额</span>
@@ -177,7 +187,7 @@ export default function MineScreen({
               <button
                 key={item.id}
                 id={`feature_tile_${item.id}`}
-                onClick={() => setActiveFeatureModal(item.id)}
+                onClick={() => handleFeatureClick(item.id)}
                 className="flex flex-col items-center justify-center group outline-none select-none cursor-pointer"
               >
                 {/* Round icon casing styled like a chip */}
@@ -204,12 +214,12 @@ export default function MineScreen({
         <div className="bg-[#15151b] border border-[#1f1f26] rounded-[24px] p-4.5 shadow flex flex-col gap-3 select-all">
           <div className="flex justify-between items-center">
             <span className="font-extrabold text-xs tracking-wider uppercase font-mono text-neutral-300">
-              BLUFF-7 BAR
+              RAIVE HOUSE
             </span>
             <button
               id="mine_contact_us"
               onClick={() => {
-                alert('Bluff-7 Bar 专席尊享客服热线：\n0769-8288XXXX （黄江汇隆中心店）\n欢迎致电预约或提供宝贵意见！');
+                alert('RAIVE HOUSE 专席尊享客服热线：\n0769-8288XXXX （黄江汇隆中心店）\n欢迎致电预约或提供宝贵意见！');
               }}
               className="px-3 py-1 bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white rounded-full text-[10.5px] font-bold cursor-pointer transition-all"
             >
@@ -224,16 +234,7 @@ export default function MineScreen({
 
       </div>
 
-      {/* SECTION 5: Footer branding matching screen 3 footer */}
-      <div className="mt-8 flex flex-col items-center justify-center text-center select-none shrink-0 py-2">
-        <div className="flex items-center gap-1 text-xs text-neutral-350">
-          <Flame className="w-4.5 h-4.5 text-amber-500 fill-amber-500/20 animate-pulse" />
-          <span className="font-sans font-black tracking-widest text-[#f5ebd2]">熠火</span>
-        </div>
-        <span className="text-[9.5px] text-neutral-600 font-mono tracking-wider mt-1 uppercase block">
-          熠火提供技术支持 • Yihuo Tech Support
-        </span>
-      </div>
+
 
       {/* 1. Register Member Overlay Popup Modal */}
       {showRegisterModal && (
@@ -253,10 +254,10 @@ export default function MineScreen({
 
             <div className="text-center space-y-1.5 mb-5 select-none">
               <span className="text-[10px] bg-[#961e1e] text-white font-semibold tracking-wider px-2 py-0.5 rounded uppercase font-mono">
-                Bluff尊享会员
+                RAIVE尊享会员
               </span>
               <h4 className="text-sm font-bold text-neutral-100">
-                创建您的 Bluff-7 会员账户
+                创建您的 RAIVE HOUSE 会员账户
               </h4>
             </div>
 
@@ -297,7 +298,7 @@ export default function MineScreen({
               </button>
               
               <p className="text-[9.5px] text-neutral-500 text-justify leading-relaxed select-all">
-                注册即代表您同意《Bluff-7 Bar 俱乐部隐私协约》及《德州文明牌友社区规章》。
+                注册即代表您同意《RAIVE HOUSE 俱乐部隐私协约》及《德州文明牌友社区规章》。
               </p>
             </div>
           </form>
@@ -388,7 +389,7 @@ export default function MineScreen({
                   
                   <div className="bg-neutral-950 p-2.5 rounded-xl border border-neutral-850 flex justify-between items-center">
                     <div>
-                      <strong className="text-neutral-200 font-sans block">Bluff-7 德州金币水晶卡套</strong>
+                      <strong className="text-neutral-200 font-sans block">RAIVE HOUSE 德州金币水晶卡套</strong>
                       <span className="text-[10px] text-neutral-500">120 积分兑换</span>
                     </div>
                     <button className="px-2.5 py-1 bg-amber-500 text-stone-950 font-bold rounded text-[10px] outline-none cursor-pointer">兑换</button>
@@ -475,7 +476,7 @@ export default function MineScreen({
                 </h4>
                 <div className="space-y-3.5 text-xs text-neutral-400 leading-relaxed text-justify">
                   <p>
-                    <b>“大师分”</b>是 Bluff-7 俱乐部专设的德州扑克段位标志。系统依照您在卡台的累加、胜负记录以及日常在酒吧内的存开酒消费，为您核定评数。
+                    <b>“大师分”</b>是 RAIVE HOUSE 俱乐部专设的德州扑克段位标志。系统依照您在卡台的累加、胜负记录以及日常在酒吧内的存开酒消费，为您核定评数。
                   </p>
                   
                   <div className="bg-neutral-950 p-3 rounded-xl border border-neutral-850 flex justify-between items-center select-none">

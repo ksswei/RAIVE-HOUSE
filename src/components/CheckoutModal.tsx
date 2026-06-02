@@ -46,7 +46,7 @@ export default function CheckoutModal({
     }
     
     // Simulate order placement
-    const orderId = 'B7-' + Math.floor(100000 + Math.random() * 900000);
+    const orderId = 'RH-' + Math.floor(100000 + Math.random() * 900000);
     setPlacedOrderId(orderId);
     setOrderCompleted(true);
     
@@ -69,7 +69,7 @@ export default function CheckoutModal({
           <ArrowLeft className="w-5 h-5" />
         </button>
         <span className="font-bold text-sm tracking-wide text-neutral-100 flex-1 text-center pr-5">
-          Bluff-7 Bar
+          RAIVE HOUSE
         </span>
       </div>
 
@@ -82,7 +82,7 @@ export default function CheckoutModal({
               <MapPin className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
               <div>
                 <h4 className="text-sm font-bold text-neutral-200 select-all">
-                  Bluff-7 Bar(Bluff-7 Bar)
+                  RAIVE HOUSE (RAIVE HOUSE)
                 </h4>
                 <p className="text-[11px] text-neutral-400 mt-1 select-all leading-normal">
                   广东省东莞市黄江镇板湖路30号汇隆中心9楼
@@ -243,7 +243,7 @@ export default function CheckoutModal({
             订单支付成功!
           </h3>
           <p className="text-xs text-neutral-400 mb-4 px-6 leading-relaxed max-w-[280px]">
-            您的订单 <b>{placedOrderId}</b> 已送达酒吧后台。我们正在为您快频备制酒水，祝您今晚 Bluff 顺利！
+            您的订单 <b>{placedOrderId}</b> 已送达酒吧后台。我们正在为您快频备制酒水，祝您今晚 RAIVE 顺利！
           </p>
 
           <div className="bg-neutral-900 border border-neutral-850 rounded-xl p-3 max-w-[260px] w-full text-left space-y-1 text-[10.5px] font-mono text-neutral-400">
@@ -282,9 +282,9 @@ export default function CheckoutModal({
             <div className="flex justify-between items-center text-xs text-neutral-400">
               <div className="flex items-center gap-1.5">
                 <div className="w-5 h-5 rounded-full bg-amber-500 flex items-center justify-center font-bold text-neutral-950 text-[10px] uppercase font-mono shadow-sm">
-                  B7
+                  RH
                 </div>
-                <span className="font-bold text-neutral-200">Bluff-7 Bar 申请</span>
+                <span className="font-bold text-neutral-200">RAIVE HOUSE 申请</span>
               </div>
               <span className="text-[10px] font-mono text-neutral-500">地理位置权限申请</span>
             </div>

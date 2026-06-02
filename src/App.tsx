@@ -6,6 +6,7 @@ import CheckoutModal from './components/CheckoutModal';
 import ReservationScreen from './components/ReservationScreen';
 import RankingsScreen from './components/RankingsScreen';
 import MineScreen from './components/MineScreen';
+import SmsRegisterModal from './components/SmsRegisterModal';
 
 import { Drink, OrderItem, Order, Seat, PlayerRank, UserProfile } from './types';
 import { 
@@ -19,6 +20,29 @@ export default function App() {
   const [activeTab, setActiveTab ] = useState<string>('order');
   const [showCheckout, setShowCheckout] = useState<boolean>(false);
   const [orderSubView, setOrderSubView] = useState<'home' | 'menu'>('home');
+
+  const [showSmsRegister, setShowSmsRegister] = useState<boolean>(false);
+  const [pendingAction, setPendingAction] = useState<(() => void) | null>(null);
+
+  const requireRegistration = (action: () => void) => {
+    // If unregistered, show SMS modal. Otherwise execute action.
+    if (user.isRegistered) {
+      action();
+    } else {
+      setPendingAction(() => action);
+      setShowSmsRegister(true);
+    }
+  };
+
+  const handleSmsRegister = (nickname: string, phone: string) => {
+    registerUser(nickname, phone);
+    if (pendingAction) {
+      setTimeout(() => {
+        pendingAction();
+        setPendingAction(null);
+      }, 500);
+    }
+  };
 
   // 1. User State (Initial default values)
   const [user, setUser] = useState<UserProfile>({
@@ -62,34 +86,31 @@ export default function App() {
 
   // 7. Event receivers for quick simulation actions
   const fetchAllData = () => {
-    fetch('/api/user')
-      .then(res => res.json())
-      .then(data => setUser(data))
-      .catch(err => console.error('Error fetching user:', err));
+    const fetchJson = (url: string, setter: (data: any) => void, retries = 5, delay = 1000) => {
+      fetch(url)
+        .then(res => {
+          if (!res.ok) throw new Error(`Status ${res.status}`);
+          return res.json();
+        })
+        .then(setter)
+        .catch(err => {
+          if (retries > 0) {
+            setTimeout(() => fetchJson(url, setter, retries - 1, delay), delay);
+          } else {
+            console.error(`Error fetching ${url}:`, err);
+          }
+        });
+    };
 
-    fetch('/api/seats')
-      .then(res => res.json())
-      .then(data => setSeats(data))
-      .catch(err => console.error('Error fetching seats:', err));
-
-    fetch('/api/ranks')
-      .then(res => res.json())
-      .then(data => {
-        setMonthlyRanks(data.monthly);
-        setLastMonthRanks(data.lastMonth);
-        setAllTimeRanks(data.allTime);
-      })
-      .catch(err => console.error('Error fetching ranks:', err));
-
-    fetch('/api/orders')
-      .then(res => res.json())
-      .then(data => setOrders(data))
-      .catch(err => console.error('Error fetching orders:', err));
-
-    fetch('/api/drinks')
-      .then(res => res.json())
-      .then(data => setDrinks(data))
-      .catch(err => console.error('Error fetching drinks:', err));
+    fetchJson('/api/user', setUser);
+    fetchJson('/api/seats', setSeats);
+    fetchJson('/api/ranks', data => {
+      setMonthlyRanks(data.monthly);
+      setLastMonthRanks(data.lastMonth);
+      setAllTimeRanks(data.allTime);
+    });
+    fetchJson('/api/orders', setOrders);
+    fetchJson('/api/drinks', setDrinks);
   };
 
   useEffect(() => {
@@ -294,11 +315,18 @@ export default function App() {
 
   const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    if (tabId === 'order') {
+      setOrderSubView('home');
+    }
+  };
+
   return (
     <WeChatWrapper
       activeTab={activeTab}
-      setActiveTab={setActiveTab}
-      title="Bluff-7 Bar"
+      setActiveTab={handleTabChange}
+      title="RAIVE HOUSE"
       isRegistered={user.isRegistered}
       cartCount={totalCartCount}
     >
@@ -307,20 +335,20 @@ export default function App() {
         orderSubView === 'home' ? (
           <HomeScreen
             user={user}
-            onSelectTab={setActiveTab}
-            onOpenOrderMenu={() => setOrderSubView('menu')}
-            onOpenRecharge={() => {
-              setActiveTab('mine');
+            onSelectTab={handleTabChange}
+            onOpenOrderMenu={() => requireRegistration(() => setOrderSubView('menu'))}
+            onOpenRecharge={() => requireRegistration(() => {
+              handleTabChange('mine');
               alert('已为您智能导航至【我的 - 账户充值】专区！💰');
-            }}
-            onOpenStoredAlcohol={() => {
-              setActiveTab('mine');
+            })}
+            onOpenStoredAlcohol={() => requireRegistration(() => {
+              handleTabChange('mine');
               alert('已为您智能导航至【我的 - 私人存酒库】！🍷');
-            }}
-            onOpenPointsMall={() => {
-              setActiveTab('mine');
+            })}
+            onOpenPointsMall={() => requireRegistration(() => {
+              handleTabChange('mine');
               alert('已为您智能导航至【我的 - 积分商城】！🎁');
-            }}
+            })}
           />
         ) : (
           <OrderScreen
@@ -329,7 +357,7 @@ export default function App() {
             addToCart={addToCart}
             removeFromCart={removeFromCart}
             clearCart={clearCart}
-            onCheckout={() => setShowCheckout(true)}
+            onCheckout={() => requireRegistration(() => setShowCheckout(true))}
             onBackToHome={() => setOrderSubView('home')}
           />
         )
@@ -358,7 +386,8 @@ export default function App() {
           orders={orders}
           registerUser={registerUser}
           onAddBalance={addBalance}
-          onSelectTab={setActiveTab}
+          onSelectTab={handleTabChange}
+          onTriggerSmsRegister={() => requireRegistration(() => {})}
         />
       )}
 
@@ -370,6 +399,14 @@ export default function App() {
           registerUser={registerUser}
           onClose={() => setShowCheckout(false)}
           onSubmitOrder={handleOrderSubmission}
+        />
+      )}
+
+      {/* Verification phone SMS register flow popup */}
+      {showSmsRegister && (
+        <SmsRegisterModal
+          onClose={() => setShowSmsRegister(false)}
+          onRegister={handleSmsRegister}
         />
       )}
     </WeChatWrapper>

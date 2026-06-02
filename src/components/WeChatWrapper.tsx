@@ -166,7 +166,7 @@ export default function WeChatWrapper({
               <button 
                 id="wechat_more_button"
                 className="text-neutral-300 hover:text-white transition-colors cursor-pointer"
-                onClick={() => alert('微信小程序菜单：\n- 添加到我的小程序\n- 股份本页\n- 关于 Bluff-7 Bar')}
+                onClick={() => alert('微信小程序菜单：\n- 添加到我的小程序\n- 股份本页\n- 关于 RAIVE HOUSE')}
               >
                 <MoreHorizontal className="w-4 h-4 stroke-[2.5]" />
               </button>
@@ -175,7 +175,7 @@ export default function WeChatWrapper({
                 id="wechat_exit_button"
                 className="text-neutral-300 hover:text-rose-500 transition-colors cursor-pointer"
                 onClick={() => {
-                  if (confirm('是否退出 Bluff-7 Bar 小程序并回到微信桌面？')) {
+                  if (confirm('是否退出 RAIVE HOUSE 小程序并回到微信桌面？')) {
                     location.reload();
                   }
                 }}
@@ -244,10 +244,10 @@ export default function WeChatWrapper({
       {/* Developer info / Desktop Sidebar Panel with helper debug logs to enrich simulation */}
       <div className="hidden lg:flex flex-col gap-4 absolute left-8 top-1/2 -translate-y-1/2 w-80 bg-neutral-900/40 backdrop-blur-md rounded-2xl p-5 border border-neutral-800 text-neutral-300 shadow-xl max-h-[80%] overflow-y-auto">
         <h3 className="text-amber-500 font-mono font-bold tracking-wider text-sm border-b border-neutral-800 pb-2 mb-2 flex items-center gap-1.5">
-          <span>●</span> BLUFF-7 BAR SIMULATOR
+          <span>●</span> RAIVE HOUSE SIMULATOR
         </h3>
         <p className="text-xs text-neutral-400 leading-relaxed">
-          这是一个完美的 <b>微信小程序沙盒交互环境</b>。模拟了 <i>Bluff-7 Bar 为德州扑克与鸡尾酒精调酒吧</i> 深度定制的私享小程序。
+          这是一个完美的 <b>微信小程序沙盒交互环境</b>。模拟了 <i>RAIVE HOUSE 为德州扑克与鸡尾酒精调酒吧</i> 深度定制的私享小程序。
         </p>
 
         <div className="space-y-3.5 my-3">
